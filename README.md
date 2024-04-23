@@ -48,5 +48,23 @@ Rodar as migrations
 php artisan migrate
 ```
 
+Adicionar Laravel Breeze
+```sh
+composer require laravel/breeze --dev
+```
+
+```sh
+php artisan breeze:install
+ 
+php artisan migrate
+npm install
+npm run dev
+```
+Para não precisar ficar rodando o comando "npm run dev"
+```sh
+npm run build
+```
+
+
 Acesse o projeto
 [http://localhost:8000](http://localhost:8000)
