@@ -32,6 +32,9 @@
                             <a class="nav-link text-dark"  href="{{ route('profile_informations.index') }}">Informações</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ route('contacts.index') }}">Mensagens</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" href="{{ route('profile.edit') }}">Perfil</a>
                         </li>
                         <li class="nav-item">
@@ -43,18 +46,6 @@
                                 @csrf
                             </form>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link text-dark" href="{{ route('logout') }}">Sair</a>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
-                        </li> --}}
                     </ul>
                 </div>
             </div>
