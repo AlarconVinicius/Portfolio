@@ -127,28 +127,42 @@
             </div>
         </div>
         <div class="column rigth">
+            @if(session()->has('success'))
+                <div id="success-alert" class="alert alert-success" role="alert">
+                    {{ session('success')}}
+                </div>
+            @endif
+            @if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    @foreach($errors->all() as $error)
+                        {{ $error }}<br>
+                    @endforeach
+                </div>
+            @endif
             <div class="text">Mensagem</div>
-            <form action="#">
+            <form id="form_message" action="{{ route('site.index') }}" method="POST">
+                @csrf
                 <div class="fields">
                     <div class="field name">
-                        <input type="text" placeholder="Nome" required>
+                        <input type="text" name="name" placeholder="Nome" value="{{ old('name') }}" >
                     </div>
                     <div class="field email">
-                        <input type="email" placeholder="Email" required>
+                        <input type="text" name="last_name" placeholder="Sobrenome" value="{{ old('last_name') }}" >
                     </div>
                 </div>
                 <div class="field">
                     <div class="field">
-                        <input type="text" placeholder="Sobrenome" required>
+                        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" >
                     </div>
                     <div class="field textarea">
-                        <textarea  cols="30" rows="10" placeholder="Escrever...." required></textarea>
+                        <textarea name="message" cols="30" rows="10" placeholder="Escrever...." >{{ old('message') }}</textarea>
                     </div>
                     <div class="button">
                         <button type="submit">Enviar</button>
                     </div>
                 </div>
             </form>
+
         </div>
         </div>
     </div>
@@ -156,5 +170,10 @@
 
 @endsection
 
-{{-- @section("script")
-@endsection --}}
+@section('script')
+    <script>
+        @if($errors->any())
+            history.replaceState({}, '', '#contato');
+        @endif
+    </script>
+@endsection

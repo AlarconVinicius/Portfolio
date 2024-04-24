@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProfileInformationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [SiteController::class, "index"])->name("site.index");
+Route::post('/', [SiteController::class, "store"])->name("site.index");
 
 Route::middleware(['auth'])->prefix('dashboard/projetos')->group(function () {
     Route::get('/', [ProjectController::class, 'index'])->name('projects.index');
@@ -38,6 +40,13 @@ Route::middleware(['auth'])->prefix('dashboard/informacoes-do-perfil')->group(fu
     Route::get('/atualizar/{id}', [ProfileInformationController::class, 'edit'])->name('profile_informations.edit');
     Route::put('/atualizar/{id}', [ProfileInformationController::class, 'update'])->name('profile_informations.update');
     Route::get('/detalhes/{id}', [ProfileInformationController::class, 'details'])->name('profile_informations.details');
+});
+
+Route::middleware(['auth'])->prefix('dashboard/mensagens')->group(function () {
+    Route::get('/', [ContactController::class, 'index'])->name('contacts.index');
+    Route::get('detalhes/{id}', [ContactController::class, 'details'])->name('contacts.details');
+    Route::get('deletar/{id}', [ContactController::class, 'delete'])->name('contacts.delete');
+    Route::delete('deletar/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 });
 
 Route::middleware('auth')->group(function () {

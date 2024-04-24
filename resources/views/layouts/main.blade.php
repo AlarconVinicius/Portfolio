@@ -49,6 +49,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    {{-- @yield("script") --}}
+    @yield("script")
+
+    <script>
+        setTimeout(function() {
+            $('#success-alert').fadeOut('slow');
+        }, 3000);
+    </script>
 </body>
 </html>

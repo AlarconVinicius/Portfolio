@@ -22,6 +22,45 @@ html{
     padding: 0 80px;
     margin: auto;
 }
+
+/* alert inicio */
+
+.alert {
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.close-btn {
+    cursor: pointer;
+    float: right;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    transition: opacity 0.1s linear;
+}
+
+.close-btn:hover {
+    opacity: .75;
+}
+
 /* navbar ínicio */
 .navbar {
     position: fixed;
@@ -144,7 +183,7 @@ html{
     bottom: 30px;
     opacity: 1;
     pointer-events:auto;
-    
+
 }
 /* Todos os codigos similares */
 .btn-outline-green {
@@ -349,7 +388,7 @@ section .title::after {
     height: 7px;
     background-color: var(--main-details-color);
     border-radius: 50%;
-    margin-right: 0.5em; 
+    margin-right: 0.5em;
 }
 /* .skills .skills-content .right .bars{
     margin-bottom: 15px;
