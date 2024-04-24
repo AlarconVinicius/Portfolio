@@ -8,12 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ProfileInformation extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'about',
-        'service1',
-        'service2',
-        'service3',
         'specialty_text',
         'specialty',
         'contact_me',
@@ -23,4 +20,9 @@ class ProfileInformation extends Model
         'resume_link',
         'linkedin_link',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

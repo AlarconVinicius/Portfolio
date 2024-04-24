@@ -15,4 +15,9 @@ class Project extends Model
         'language',
         'link',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
