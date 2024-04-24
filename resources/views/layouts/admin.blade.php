@@ -26,6 +26,9 @@
                             <a class="nav-link text-dark" href="{{ route('projects.index') }}">Projetos</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ route('services.index') }}">Serviços</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Informacoes" asp-action="Index">Informações</a>
                         </li>
                         <li class="nav-item">

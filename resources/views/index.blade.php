@@ -44,7 +44,16 @@
     <div class="max-width">
         <h2 class="title">Serviços</h2>
         <div class="services-content">
+            @foreach ($services as $service)
             <div class="card">
+                <div class="box">
+                    <ion-icon name="{{$service->icon}}"></ion-icon>
+                    <div class="text">{{$service->name}}</div>
+                    <p>{{$service->description}}</p>
+                </div>
+            </div>
+            @endforeach
+            {{-- <div class="card">
                 <div class="box">
                     <ion-icon name="brush-outline"></ion-icon>
                     <div class="text">Desenvolvimento Web</div>
@@ -66,7 +75,7 @@
                     <div class="text">Dashboards</div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, optio.</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     </section>

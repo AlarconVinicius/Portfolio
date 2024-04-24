@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,17 @@ Route::middleware(['auth'])->prefix('dashboard/projetos')->group(function () {
     Route::get('/detalhes/{id}', [ProjectController::class, 'details'])->name('projects.details');
     Route::get('/deletar/{id}', [ProjectController::class, 'delete'])->name('projects.delete');
     Route::delete('/deletar/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+});
+
+Route::middleware(['auth'])->prefix('dashboard/servicos')->group(function () {
+    Route::get('/', [ServiceController::class, 'index'])->name('services.index');
+    Route::get('/adicionar', [ServiceController::class, 'create'])->name('services.create');
+    Route::post('/adicionar', [ServiceController::class, 'store'])->name('services.store');
+    Route::get('/atualizar/{id}', [ServiceController::class, 'edit'])->name('services.edit');
+    Route::put('/atualizar/{id}', [ServiceController::class, 'update'])->name('services.update');
+    Route::get('/detalhes/{id}', [ServiceController::class, 'details'])->name('services.details');
+    Route::get('/deletar/{id}', [ServiceController::class, 'delete'])->name('services.delete');
+    Route::delete('/deletar/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
 });
 
 Route::middleware('auth')->group(function () {
