@@ -19,6 +19,7 @@ class ProfileInformation extends Model
         'email',
         'resume_link',
         'linkedin_link',
+        'user_id'
     ];
 
     public function user()

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProfileInformationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -28,6 +29,15 @@ Route::middleware(['auth'])->prefix('dashboard/servicos')->group(function () {
     Route::get('/detalhes/{id}', [ServiceController::class, 'details'])->name('services.details');
     Route::get('/deletar/{id}', [ServiceController::class, 'delete'])->name('services.delete');
     Route::delete('/deletar/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+});
+
+Route::middleware(['auth'])->prefix('dashboard/informacoes-do-perfil')->group(function () {
+    Route::get('/', [ProfileInformationController::class, 'index'])->name('profile_informations.index');
+    Route::get('/adicionar', [ProfileInformationController::class, 'create'])->name('profile_informations.create');
+    Route::post('/adicionar', [ProfileInformationController::class, 'store'])->name('profile_informations.store');
+    Route::get('/atualizar/{id}', [ProfileInformationController::class, 'edit'])->name('profile_informations.edit');
+    Route::put('/atualizar/{id}', [ProfileInformationController::class, 'update'])->name('profile_informations.update');
+    Route::get('/detalhes/{id}', [ProfileInformationController::class, 'details'])->name('profile_informations.details');
 });
 
 Route::middleware('auth')->group(function () {

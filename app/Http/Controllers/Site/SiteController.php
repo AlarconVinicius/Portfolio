@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Service;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -12,9 +13,11 @@ class SiteController extends Controller
 
         $projects = Project::all();
         $services = Service::all();
+        $profileInformation = Auth::user()->profileInformation()->first();
         return view('index', [
             'projects' => $projects,
-            'services' => $services
+            'services' => $services,
+            'profileInformation' => $profileInformation
         ]);
     }
 }

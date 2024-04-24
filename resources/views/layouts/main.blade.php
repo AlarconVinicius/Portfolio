@@ -38,7 +38,7 @@
 
     <!--Footer Início-->
     <footer>
-        <span>Criado por <a href="https://www.linkedin.com/in/vinicius-alarcon/" target="_blank" >Vinícius Alarcon</a> | Todos os direitos reservado 2021</span>
+        <span>Criado por <a href="{{ $profileInformation->linkedin_link }}" target="_blank" >Vinícius Alarcon</a> | Todos os direitos reservado 2021</span>
     </footer>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
