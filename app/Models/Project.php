@@ -14,6 +14,7 @@ class Project extends Model
         'description',
         'language',
         'link',
+        'user_id'
     ];
 
     public function user()
