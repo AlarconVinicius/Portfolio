@@ -39,7 +39,7 @@ class StoreProjectRequest extends FormRequest
             'language' => [
                 'required',
                 'string',
-                'min:3',
+                'min:2',
                 'max:100'
             ],
             'link' => [
