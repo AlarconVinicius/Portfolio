@@ -6,8 +6,11 @@
 <h1>Projetos</h1>
 
 <p>
-    <a href="">Adicionar Projeto</a>
+    <a href="{{ route('projects.create') }}">Adicionar Projeto</a>
 </p>
+
+<x-alert/>
+
 <table class="table">
     <thead>
         <tr>
@@ -54,9 +57,10 @@
                 {{ $project->updated_at }}
             </td>
             <td>
-                <a href="" >Edit</a> |
-                <a href="" >Details</a> |
-                <a href="" >Delete</a>
+                {{-- <a href="{{ route('projects.edit', $project) }}">Edit</a> | --}}
+                <a href="{{ route('projects.edit', $project->id) }}">Editar</a>
+                <a href="{{ route('projects.details', $project->id) }}">Detalhes</a>
+                <a href="{{ route('projects.delete', $project->id) }}">Deletar</a>
             </td>
         </tr>
     @endforeach
@@ -64,3 +68,8 @@
 </table>
 
 @endsection
+{{-- @section("script")
+@endsection --}}
+
+
+

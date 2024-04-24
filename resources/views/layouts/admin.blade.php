@@ -20,20 +20,38 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Portfolio</a>
+                            <a class="nav-link text-dark" href="{{ route('site.index') }}">Portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Projetos" asp-action="Index">Projetos</a>
+                            <a class="nav-link text-dark" href="{{ route('projects.index') }}">Projetos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Informacoes" asp-action="Index">Informações</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Perfil</a>
+                            <a class="nav-link text-dark" href="{{ route('profile.edit') }}">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Sair">Sair</a>
+                            <a class="nav-link text-dark" href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Sair
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
+                        {{-- <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ route('logout') }}">Sair</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -52,6 +70,14 @@
     </footer>
     <script src="{{ asset('assets/lib/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/lib/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script>
+        setTimeout(function() {
+            $('#success-alert').fadeOut('slow');
+            $('#message-alert').fadeOut('slow');
+            $('#error-alert').fadeOut('slow');
+        }, 3000);
+    </script>
     @yield("script")
 </body>
 </html>
