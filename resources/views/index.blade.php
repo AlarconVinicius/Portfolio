@@ -175,5 +175,10 @@
         @if($errors->any())
             history.replaceState({}, '', '#contato');
         @endif
+        @if(session('success'))
+            window.onload = function() {
+                window.location.href = window.location.href + "#contato";
+            }
+        @endif
     </script>
 @endsection

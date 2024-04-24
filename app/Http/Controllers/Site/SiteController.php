@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\ProfileInformation;
 use App\Models\Project;
 use App\Models\Service;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -15,7 +15,7 @@ class SiteController extends Controller
 
         $projects = Project::all();
         $services = Service::all();
-        $profileInformation = Auth::user()->profileInformation()->first();
+        $profileInformation = ProfileInformation::first();
         return view('index', [
             'projects' => $projects,
             'services' => $services,
@@ -50,6 +50,6 @@ class SiteController extends Controller
             ],
         ]);
         Contact::create($validatedData);
-        return redirect()->route('site.index', "#contato")->with('success', 'Mensagem enviada com sucesso! Obrigado por entrar em contato.');
+        return redirect()->route('site.index')->with('success', 'Mensagem enviada com sucesso! Obrigado por entrar em contato.');
     }
 }
