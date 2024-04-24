@@ -24,7 +24,7 @@ class ProjectController extends Controller
     {
         $project = Auth::user()->projects()->find($id);
         if (!$project) {
-            return redirect()->route('admin.projects.index')->with('error', 'Projeto não encontrado.');
+            return redirect()->route('projects.index')->with('error', 'Projeto não encontrado.');
         }
 
         $page_section_title = "Detalhes do Projeto: " . $project->title;
@@ -54,7 +54,7 @@ class ProjectController extends Controller
         ]);
         $data['user_id'] = Auth::user()->id;
         Project::create($data);
-        return redirect()->route('admin.projects.index')
+        return redirect()->route('projects.index')
                          ->with('success', 'Projeto adicionado com sucesso.');
     }
 
@@ -63,7 +63,7 @@ class ProjectController extends Controller
         $project = Auth::user()->projects()->find($id);
 
         if (!$project) {
-            return redirect()->route('admin.projects.index')
+            return redirect()->route('projects.index')
                              ->with('message', 'Projeto não encontrado.');
         }
 
@@ -93,7 +93,7 @@ class ProjectController extends Controller
         // }
 
         $project->update($data);
-        return redirect()->route('admin.projects.index')
+        return redirect()->route('projects.index')
                          ->with('success', 'Projeto atualizado com sucesso.');
     }
 
@@ -102,7 +102,7 @@ class ProjectController extends Controller
         $project = Auth::user()->projects()->find($id);
 
         if (!$project) {
-            return redirect()->route('admin.projects.index')->with('message', 'Projeto não encontrado.');
+            return redirect()->route('projects.index')->with('message', 'Projeto não encontrado.');
         }
 
         $page_section_title = "Deletar Projeto: " . $project->title;
@@ -126,7 +126,7 @@ class ProjectController extends Controller
         // }
 
         $project->delete();
-        return redirect()->route('admin.projects.index')
+        return redirect()->route('projects.index')
                          ->with('success', 'Projeto deletado com sucesso.');
     }
 }
